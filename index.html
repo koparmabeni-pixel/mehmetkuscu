@@ -1,0 +1,309 @@
+```html
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniNews AI | Otonom Küresel Haber & Derin Araştırma Ajanı</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbe1',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        accent: {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .bg-grid {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-amber {
+            box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-950 bg-grid">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-cyan-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">
+                    <i class="fa-solid font-bold fa-newspaper text-slate-950"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white">OmniNews<span class="text-amber-500">.AI</span></span>
+                    <span class="block text-[10px] text-slate-400 font-mono">Claude 3.5 Driven Engine</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-amber-400 transition">Özellikler</a>
+                <a href="#architecture" class="hover:text-amber-400 transition">Mimari</a>
+                <a href="#demo" class="hover:text-amber-400 transition">Canlı Simülasyon</a>
+                <a href="#contact" class="hover:text-amber-400 transition">İletişim</a>
+            </nav>
+
+            <!-- Status Badge & CTA -->
+            <div class="flex items-center space-x-4">
+                <div class="hidden sm:flex items-center space-x-2 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-xs text-slate-300">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Anthropic Grant Candidate</span>
+                </div>
+                <a href="#contact" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/10 flex items-center space-x-2">
+                    <span>Erişim İste</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold mb-8 backdrop-blur-sm">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Otonom Küresel İstihbarat & Derin Araştırma Botu</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Dünya Haberlerini <span class="bg-gradient-to-r from-amber-400 via-amber-200 to-cyan-400 bg-clip-text text-transparent">Saniyeler İçinde</span> Anlayın ve Analiz Edin
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+                <strong class="text-slate-200">OmniNews AI</strong>, 7/24 tüm dünyadaki haber kaynaklarını, makaleleri ve sosyal sinyalleri izler. Claude 3.5 Sonnet altyapısı ile istediğiniz konu üzerinde gürültüyü süzerek derinlemesine raporlar sunar.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#demo" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-xl glow-amber flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-terminal text-sm"></i>
+                    <span>Canlı Araştırma Demosu</span>
+                </a>
+                <a href="#architecture" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold px-8 py-4 rounded-xl transition flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-code-branch text-sm text-cyan-400"></i>
+                    <span>Claude Mimarisini İncele</span>
+                </a>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-900">
+                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800/60 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">100K+</div>
+                    <div class="text-xs text-slate-400 mt-1">Günlük Taranan Kaynak</div>
+                </div>
+                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800/60 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">&lt; 3sn</div>
+                    <div class="text-xs text-slate-400 mt-1">Sinyal Tespit Hızı</div>
+                </div>
+                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800/60 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">50+</div>
+                    <div class="text-xs text-slate-400 mt-1">Dil Anlık Çeviri/Analiz</div>
+                </div>
+                <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800/60 backdrop-blur-sm">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">200K</div>
+                    <div class="text-xs text-slate-400 mt-1">Claude Context Window</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Terminal Section -->
+    <section id="demo" class="py-16 bg-slate-900/50 border-y border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Canlı Bot Konsolu Örnek Çıktısı</h2>
+                <p class="text-slate-400 text-sm">Aşağıdaki konsol, Claude 3.5 Sonnet motorumuzun küresel verileri gerçek zamanlı nasıl işlediğini gösterir.</p>
+            </div>
+
+            <!-- Mock Terminal Window -->
+            <div class="bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden glow-cyan max-w-4xl mx-auto">
+                <div class="bg-slate-900/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        <span class="text-xs font-mono text-slate-400 ml-2">omninews-agent --live-deep-research</span>
+                    </div>
+                    <span class="text-[10px] font-mono bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20">Claude API Connected</span>
+                </div>
+                
+                <div class="p-6 font-mono text-xs sm:text-sm text-slate-300 space-y-4 overflow-x-auto min-h-[320px]">
+                    <div class="flex items-center space-x-2 text-slate-500">
+                        <span>[18:42:01]</span>
+                        <span class="text-cyan-400">INFO</span>
+                        <span>Otonom küresel web crawler aktif. 14,200 kaynak taranıyor...</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-slate-500">
+                        <span>[18:42:03]</span>
+                        <span class="text-amber-400">PROMPT</span>
+                        <span class="text-slate-200">Kullanıcı Sorgusu: "Yarı iletken tedarik zincirindeki son jeopolitik gelişmeler ve çip üreticilerine etkisi."</span>
+                    </div>
+                    <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-300 space-y-2">
+                        <div class="text-amber-400 font-bold flex items-center justify-between">
+                            <span><i class="fa-solid fa-brain mr-2"></i>Claude 3.5 Sonnet Derin Sentez Raporu</span>
+                            <span class="text-[10px] text-slate-500 font-normal">Güven Skoru: %98.4</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong>1. Sinyal Özetleri:</strong> Tayvan ve Doğu Asya merkezli 42 farklı haber kaynağından alınan son dakika verilerine göre, gelişmiş litografi cihazları ihracat kısıtlamaları sıkılaştırıldı.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong>2. Etki Analizi:</strong> Ekran kartı ve yapay zeka çipi üreticilerinin teslimat sürelerinde önümüzdeki 2 çeyrekte %15 uzama bekleniyor.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong>3. Piyasa Duygu Analizi (Sentiment):</strong> Nötr-Negatif (%62 risk algısı).
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-emerald-400">
+                        <span>[18:42:05]</span>
+                        <i class="fa-solid fa-check text-xs"></i>
+                        <span>Derin araştırma tamamlandı. Rapor kullanıcıya gönderildi.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-amber-500 mb-2">Gelişmiş Kabiliyetler</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-white">Klasik Haber Takibinin Ötesinde Bir Yapay Zeka Ajanı</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">7/24 Küresel Sinyal Taraması</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Uluslararası basından yerel bloglara, resmi gazete duyurularından finansal raporlara kadar binlerce kaynağı dil engelini ortadan kaldırarak anlık izler.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Derin Araştırma Modülü</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Sadece başlıkları sunmaz. Claude API'nin yüksek bağlam penceresi sayesinde istediğiniz spesifik konuda yüzlerce haberin sentezini çıkarır.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Gürültü & Yanıltıcı Haber Filtresi</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Antrenmanlı semantik doğrulama modelleri ile tık tuzağı (clickbait) içerikleri eler, sadece doğrulanmış bilgi parçacıklarını rapora dahil eder.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Claude Integration Section -->
+    <section id="architecture" class="py-20 bg-slate-900/30 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-4">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>Anthropic Ecosystem Integration</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+                        Neden Anthropic Claude 3.5 Sonnet?
+                    </h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        OmniNews AI, sıradan dil modellerinin ötesine geçmek zorundaydı. Karmaşık haber metinlerinin arkasındaki ima, jeopolitik risk ve finansal etkileri doğru okumak için **Claude 3.5 Sonnet**'in üstün mantık yürütme (reasoning) kapasitesini kullanıyoruz.
+                    </p>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-slate-300 text-sm"><strong class="text-white">200K Bağlam Penceresi:</strong> Tek bir araştırmada 50'den fazla uzun makaleyi kayıpsız analiz edebilme.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-slate-300 text-sm"><strong class="text-white">Düşük Halüsinasyon Oranı:</strong> Haber verilerinin gerçekliğe sadık kalınarak özetlenmesi.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-slate-300 text-sm"><strong class="text-white">Ajanic İş Akışı (Tool Use):</strong> Bot, Claude API üzerinden web arama araçlarını ve vektör veritabanını dinamik olarak çağırır.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Workflow Diagram Mockup -->
+                <div class="bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
+                    <div class="text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">OmniNews İş Akışı Mimarisi</div>
+                    
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-rss text-amber-500 text-lg"></i>
+                            <div>
+                                <div class="text-sm font-semibold text-white">1. Veri Toplama & Scrape</div>
+                                <div class="text-xs text-slate-400">RSS, News APIs, Multi-language Crawlers</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono bg-slate-800 px-2 py-1 rounded text-slate-400">Async</span>
+                    </div>
+
+                    <div class="flex justify-center my-1 text-slate-600">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+
+                    <div class="p-4 bg-slate-900 rounded-xl border border-amber-500/30 bg-amber-500/5 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-brain text-amber-400 text-lg"></i>
+                            <div>
+                                <div class="text-sm font-semibold text-white">2. Claude 3.5 Sonnet Sentezi</div>
+                                <div class="text-xs text-slate-400">Semantik Filtreleme, Risk/Fırsat Skorlama</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-
